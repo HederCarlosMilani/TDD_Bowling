@@ -18,7 +18,7 @@ class BowlingTest {
 
 
     @Test
-    void fazerJogadaHeder() {
+    void fazerJogada1() {
         assertEquals(1, partida.fazerJogada(heder, 10));
         assertEquals(2, partida.fazerJogada(heder, 10));
         assertEquals(3, partida.fazerJogada(heder, 10));
