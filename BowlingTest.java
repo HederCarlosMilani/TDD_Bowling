@@ -17,4 +17,18 @@ class BowlingTest {
     }
 
 
+    @Test
+    void fazerJogadaHeder() {
+        assertEquals(1, partida.fazerJogada(heder, 10));
+        assertEquals(2, partida.fazerJogada(heder, 10));
+        assertEquals(3, partida.fazerJogada(heder, 10));
+        assertEquals(4, partida.fazerJogada(heder, 10));
+        assertEquals(5, partida.fazerJogada(heder, 10));
+        assertEquals(6, partida.fazerJogada(heder, 10));
+        assertEquals(7, partida.fazerJogada(heder, 10));
+        assertEquals(8, partida.fazerJogada(heder, 10));
+        assertEquals(9, partida.fazerJogada(heder, 10));
+        assertEquals(10, partida.fazerJogada(heder, 10));
+        assertThrows(IndexOutOfBoundsException.class, () -> partida.fazerJogada(heder, 10));
+    }
 }

@@ -1,3 +1,5 @@
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +17,15 @@ public class Bowling {
         return this.jogadores.size();
     }
 
-    int fazerJogada() {
-
+    /**
+     * Faz uma jogada para o jogador Selecionado.
+     *
+     * @param jogador Objeto jogador
+     * @param pinos Número de pinos derrubados
+     * @return Número de jogadas realizadas pelo jogador
+     */
+    int fazerJogada(@NotNull Jogador jogador, int pinos) {
+        jogador.addRodada(pinos);
+        return jogador.rodadas.size();
     }
 }
