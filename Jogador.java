@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Jogador {
     String nome;
-    List<Integer> rodadas = new ArrayList<>(10);
+    Frame[] rodadas;
 
     Jogador(String nome) {
         this.nome = nome;
