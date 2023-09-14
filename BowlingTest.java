@@ -19,6 +19,7 @@ class BowlingTest {
 
     @Test
     void fazerJogada1() {
+        assertThrows(IllegalArgumentException.class, () -> partida.fazerJogada(heder, 11));
         assertEquals(1, partida.fazerJogada(heder, 10));
         assertEquals(2, partida.fazerJogada(heder, 10));
         assertEquals(3, partida.fazerJogada(heder, 10));
@@ -27,8 +28,14 @@ class BowlingTest {
         assertEquals(6, partida.fazerJogada(heder, 10));
         assertEquals(7, partida.fazerJogada(heder, 10));
         assertEquals(8, partida.fazerJogada(heder, 10));
-        assertEquals(9, partida.fazerJogada(heder, 10));
+        assertEquals(9, partida.fazerJogada(heder, 9));
+        assertEquals(9, partida.fazerJogada(heder, 1));
         assertEquals(10, partida.fazerJogada(heder, 10));
         assertThrows(IndexOutOfBoundsException.class, () -> partida.fazerJogada(heder, 10));
+    }
+
+    @Test
+    void fazerJogada2() {
+        assertEquals(1, partida.fazerJogada(heder, 15));
     }
 }
