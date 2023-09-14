@@ -25,9 +25,9 @@ public class Bowling {
      * @return Número de jogadas realizadas pelo jogador
      */
     int fazerJogada(@NotNull Jogador jogador, int pinos) {
-        if(jogador.rodadas.size() == 10) throw new IndexOutOfBoundsException("Jogador já realizou todas as jogadas.");
+        if(jogador.frames.size() >= 10) throw new IndexOutOfBoundsException("Jogador já realizou todas as jogadas.");
         jogador.addRodada(pinos);
-        return jogador.rodadas.size();
+        return jogador.frames.size();
     }
 
     void calculatePoints(Jogador player, int round) {
