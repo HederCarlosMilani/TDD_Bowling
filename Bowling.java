@@ -29,4 +29,15 @@ public class Bowling {
         jogador.addRodada(pinos);
         return jogador.rodadas.size();
     }
+
+    int calculatePoints(Jogador player, int round) {
+        int pins = player.rodadas.get(round);
+        if (pins == 10) {
+            strike(player);
+        }
+        return pins;
+    }
+
+    int strike(Jogador player) {}
+
 }
