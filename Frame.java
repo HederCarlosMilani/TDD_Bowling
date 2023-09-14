@@ -1,4 +1,10 @@
+
 public class Frame {
+    enum Status {
+        STRIKE,
+        SPARE,
+        OPEN
+    }
     int jogada1;
     int jogada2;
 
@@ -27,5 +33,19 @@ public class Frame {
 
     public void setJogada2(int jogada2) {
         this.jogada2 = jogada2;
+    }
+
+    public Status getStatus() {
+        if (this.jogada1 == 10) {
+            return Status.STRIKE;
+        }
+        if ((this.jogada1 + this.jogada2) == 10) {
+            return Status.SPARE;
+        }
+        return Status.OPEN;
+    }
+
+    public int getTotalPoint() {
+        return this.getJogada1() + this.getJogada2();
     }
 }

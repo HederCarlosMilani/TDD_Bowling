@@ -1,4 +1,3 @@
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +23,7 @@ public class Bowling {
      * @param pinos Número de pinos derrubados
      * @return Número de jogadas realizadas pelo jogador
      */
-    int fazerJogada(@NotNull Jogador jogador, int pinos) {
+    int fazerJogada(Jogador jogador, int pinos) {
         if(jogador.frames.size() >= 10) throw new IndexOutOfBoundsException("Jogador já realizou todas as jogadas.");
         jogador.addRodada(pinos);
         return jogador.frames.size();
@@ -32,15 +31,15 @@ public class Bowling {
 
     void calculatePoints(Jogador player, int round) {
         int pontuacao = 0;
-        for (int i = 0; i < player.rodadas.size(); i++) {
-            int pinos = player.rodadas.get(i);
-            if (pinos == 10) { // strike
-                pontuacao += 10 + player.rodadas.get(i+1) + player.rodadas.get(i+2);
-            } else if (i < player.rodadas.size() - 1 && pinos + player.rodadas.get(i+1) == 10) { // spare
-                pontuacao += 10 + player.rodadas.get(i+2);
+        for (int i = 0; i < player.frames.size(); i++) {
+            Frame frame = player.frames.get(i);
+            if (frame.getStatus() == Frame.Status.STRIKE) {
+                pontuacao += 10 + player.frames.get(i+1).getTotalPoint() + player.frames.get(i+2).getTotalPoint();
+            } else if (frame.getStatus() == Frame.Status.SPARE) {
+                pontuacao += 10 + player.frames.get(i+2).getTotalPoint();
                 i++;
             } else {
-                pontuacao += pinos;
+                pontuacao += frame.getTotalPoint();
             }
         }
         System.out.println("Pontuação de " + player.nome + ": " + pontuacao);
