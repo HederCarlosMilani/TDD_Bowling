@@ -30,14 +30,20 @@ public class Bowling {
         return jogador.rodadas.size();
     }
 
-    int calculatePoints(Jogador player, int round) {
-        int pins = player.rodadas.get(round);
-        if (pins == 10) {
-            strike(player);
+    void calculatePoints(Jogador player, int round) {
+        int pontuacao = 0;
+        for (int i = 0; i < player.rodadas.size(); i++) {
+            int pinos = player.rodadas.get(i);
+            if (pinos == 10) { // strike
+                pontuacao += 10 + player.rodadas.get(i+1) + player.rodadas.get(i+2);
+            } else if (i < player.rodadas.size() - 1 && pinos + player.rodadas.get(i+1) == 10) { // spare
+                pontuacao += 10 + player.rodadas.get(i+2);
+                i++;
+            } else {
+                pontuacao += pinos;
+            }
         }
-        return pins;
+        System.out.println("Pontuação de " + player.nome + ": " + pontuacao);
     }
-
-    int strike(Jogador player) {}
 
 }
