@@ -29,20 +29,31 @@ public class Bowling {
         return jogador.frames.size();
     }
 
-    void calculatePoints(Jogador player, int round) {
+    int calculatePoints(Jogador player) {
         int pontuacao = 0;
-        for (int i = 0; i < player.frames.size(); i++) {
+        if (player.frames.size() == 1) {
+            pontuacao += player.frames.get(0).getTotalPoint();
+        }
+        for (int i = 0; i < player.frames.size() - 1; i++) {
             Frame frame = player.frames.get(i);
             if (frame.getStatus() == Frame.Status.STRIKE) {
-                pontuacao += 10 + player.frames.get(i+1).getTotalPoint() + player.frames.get(i+2).getTotalPoint();
+                pontuacao += 10;
+                if ((player.frames.size() + 2) < i) {
+                    pontuacao += player.frames.get(i + 2).getTotalPoint();
+                }
+                if ((player.frames.size() + 1) < i) {
+                    pontuacao += player.frames.get(i + 1).getTotalPoint();
+                }
             } else if (frame.getStatus() == Frame.Status.SPARE) {
-                pontuacao += 10 + player.frames.get(i+2).getTotalPoint();
-                i++;
+                pontuacao += 10;
+                if ((player.frames.size() + 1) < i) {
+                    pontuacao += player.frames.get(i + 1).getTotalPoint();
+                }
             } else {
                 pontuacao += frame.getTotalPoint();
             }
         }
-        System.out.println("Pontuação de " + player.nome + ": " + pontuacao);
+        return pontuacao;
     }
 
 }

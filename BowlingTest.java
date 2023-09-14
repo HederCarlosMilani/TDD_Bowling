@@ -19,6 +19,7 @@ class BowlingTest {
 
     @Test
     void fazerJogada1() {
+        System.out.println("?");
         assertThrows(IllegalArgumentException.class, () -> partida.fazerJogada(heder, 11));
         assertEquals(1, partida.fazerJogada(heder, 10));
         assertEquals(2, partida.fazerJogada(heder, 10));
@@ -37,5 +38,19 @@ class BowlingTest {
     @Test
     void fazerJogada2() {
         assertEquals(1, partida.fazerJogada(heder, 15));
+    }
+
+    @Test
+    void shouldCaculatePoint() {
+        partida.fazerJogada(vini, 10);
+        assertEquals(10, partida.calculatePoints(vini));
+        partida.fazerJogada(vini, 10);
+        assertEquals(30, partida.calculatePoints(vini));
+//        partida.fazerJogada(vini, 10);
+//        partida.fazerJogada(vini, 7);
+//        partida.fazerJogada(vini, 2);
+//        partida.fazerJogada(vini, 8);
+//        partida.fazerJogada(vini, 2);
+//        System.out.println(vini.frames.size());
     }
 }

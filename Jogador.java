@@ -22,6 +22,5 @@ public class Jogador {
                 this.frames.set(this.frames.size() - 1, ultimoFrame);
             }
         }
-        System.out.println(frames);
     }
 }
