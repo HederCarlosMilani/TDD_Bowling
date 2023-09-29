@@ -8,6 +8,8 @@ public class Frame {
     int jogada1;
     int jogada2;
 
+    int points = 0;
+
     Frame(int jogada) {
         if (jogada < 0 || jogada > 10) {
             throw new IllegalArgumentException("Número de pinos inválido.");
@@ -47,5 +49,8 @@ public class Frame {
 
     public int getTotalPoint() {
         return this.getJogada1() + this.getJogada2();
+    }
+    public void addPoint(int point){
+        this.points += point;
     }
 }

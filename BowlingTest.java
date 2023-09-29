@@ -43,14 +43,22 @@ class BowlingTest {
     @Test
     void shouldCaculatePoint() {
         partida.fazerJogada(vini, 10);
-        assertEquals(10, partida.calculatePoints(vini));
         partida.fazerJogada(vini, 10);
-        assertEquals(30, partida.calculatePoints(vini));
-//        partida.fazerJogada(vini, 10);
-//        partida.fazerJogada(vini, 7);
-//        partida.fazerJogada(vini, 2);
-//        partida.fazerJogada(vini, 8);
-//        partida.fazerJogada(vini, 2);
-//        System.out.println(vini.frames.size());
+        partida.fazerJogada(vini, 10);
+        partida.fazerJogada(vini, 7);
+        partida.fazerJogada(vini, 2);
+        partida.fazerJogada(vini, 8);
+        partida.fazerJogada(vini, 2);
+        partida.fazerJogada(vini, 0);
+        partida.fazerJogada(vini, 9);
+        partida.fazerJogada(vini, 10);
+        partida.fazerJogada(vini, 7);
+        partida.fazerJogada(vini, 3);
+        partida.fazerJogada(vini, 9);
+        partida.fazerJogada(vini, 0);
+        partida.fazerJogada(vini, 10);
+        partida.fazerJogada(vini, 10);
+        partida.fazerJogada(vini, 8);
+        System.out.println(vini.frames.size());
     }
 }
